@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Voice Agent POC</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header>
+        <p class="eyebrow">Voice · Video · Physical AI</p>
+        <h1>Voice agent POC</h1>
+        <p class="lede">
+          Click Talk, speak, then stop. Whisper transcribes, the assistant replies, and TTS speaks it back.
+        </p>
+      </header>
+
+      <section class="stage">
+        <div class="orb" data-state="idle" id="orb">
+          <canvas id="wave" width="280" height="80"></canvas>
+        </div>
+        <p class="status" id="status">Idle — allow the microphone when asked</p>
+        <button type="button" id="talk" class="talk">Talk</button>
+        <p class="hint">Try: “What time is it?”, “Remember my meeting is at 3”, “Turn on the lights”, “What’s 24 times 17?”</p>
+      </section>
+
+      <section class="log" id="log" aria-live="polite"></section>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

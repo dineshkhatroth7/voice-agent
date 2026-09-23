@@ -1,0 +1,157 @@
+:root {
+  --bg: #0b1020;
+  --panel: #151b2e;
+  --ink: #e8eefc;
+  --muted: #9aa7c2;
+  --accent: #6ea8ff;
+  --user: #2a3557;
+  --agent: #1d3a4a;
+  --danger: #ff7a7a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background:
+    radial-gradient(1200px 500px at 10% -10%, #1b2a55 0%, transparent 55%),
+    radial-gradient(900px 400px at 100% 0%, #12363a 0%, transparent 50%),
+    var(--bg);
+  color: var(--ink);
+}
+
+.shell {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px 64px;
+}
+
+.eyebrow {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-size: 12px;
+  margin: 0 0 8px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 32px;
+  font-weight: 650;
+}
+
+.lede,
+.hint,
+.status {
+  color: var(--muted);
+}
+
+.stage {
+  margin-top: 32px;
+  background: color-mix(in srgb, var(--panel) 88%, black);
+  border: 1px solid #2a3350;
+  border-radius: 24px;
+  padding: 28px 20px 24px;
+  text-align: center;
+}
+
+.orb {
+  width: min(100%, 360px);
+  margin: 0 auto 16px;
+  border-radius: 20px;
+  background: #0e1426;
+  border: 1px solid #2d3a63;
+  display: grid;
+  place-items: center;
+  min-height: 110px;
+  transition: box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.orb[data-state="listening"] {
+  border-color: #6ea8ff;
+  box-shadow: 0 0 0 4px #6ea8ff22, 0 0 40px #6ea8ff33;
+}
+
+.orb[data-state="thinking"],
+.orb[data-state="transcribing"] {
+  border-color: #c9a227;
+  box-shadow: 0 0 32px #c9a22733;
+}
+
+.orb[data-state="speaking"] {
+  border-color: #3ecf8e;
+  box-shadow: 0 0 32px #3ecf8e33;
+}
+
+.status {
+  min-height: 1.4em;
+  margin: 0 0 18px;
+}
+
+.talk {
+  appearance: none;
+  border: 0;
+  background: linear-gradient(180deg, #7eb3ff, #4d8dff);
+  color: #071226;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 12px 36px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.talk:hover {
+  filter: brightness(1.06);
+}
+
+.talk[data-recording="true"] {
+  background: linear-gradient(180deg, #ff9a9a, var(--danger));
+  color: #2a0b0b;
+}
+
+.talk:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.hint {
+  font-size: 13px;
+  margin: 16px 0 0;
+}
+
+.log {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bubble {
+  padding: 12px 14px;
+  border-radius: 14px;
+  line-height: 1.45;
+  max-width: 92%;
+}
+
+.bubble.user {
+  align-self: flex-end;
+  background: var(--user);
+}
+
+.bubble.agent {
+  align-self: flex-start;
+  background: var(--agent);
+}
+
+.bubble small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
